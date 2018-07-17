@@ -12,49 +12,67 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
-	Font titleFont;
+	
  
 	final int MENU_STATE = 0;
 
 	final int GAME_STATE = 1;
 
 	final int END_STATE = 2;
+	Font titleFont =new Font("Arial",Font.PLAIN,50);
+	Spaceship ship1 = new Spaceship(250,700,50,50);
 	int currentState = MENU_STATE;
 	Timer timer = new Timer(1000 / 60, this);
 
 
 	public void startGame() {
-		Font titleFont =new Font("Arial",Font.PLAIN,48);
+	
 		timer.start();
 	}
 public void updateMenuState() {
 	
 }
 public  void updateGameState() {
-	
+	ship1.update();
 }
 public  void updateEndState() {
 	
 }
-
-	public  void drawMenuState(Graphics g ) {
+	public  void drawMenuState(Graphics g ) { 
 		
-	 g.drawString("Hi", 10	, 4);
-		 g.setColor(Color.BLACK);
 		 g.setColor(Color.BLUE);
+		 g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
+			
+		 g.setFont(titleFont);
+		 g.setColor(Color.YELLOW);
+	
+	 g.drawString("Space Invaders", 100	, 100);
+	 g.drawString("Press Enter to Start", 25, 250);
+	 g.drawString("Press Space for Help", 25,400);
 
-		g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);    
+		
+	
 	}
 public void drawGameState(Graphics g) {
 	g.setColor(Color.BLACK);
-
-	g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
+	 g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
+		
+	 g.setFont(titleFont);
+	 g.setColor(Color.BLACK);
+ 
+	 ship1.draw(g);
+	
 	}
 public  void drawEndState(Graphics g) {
-	g.setColor(Color.RED);
+	g.setColor(Color.RED); g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
+	
+ g.setFont(titleFont);
+ g.setColor(Color.BLACK);
 
-	g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
-}
+g.drawString("You Died", 100	, 100);
+g.drawString("Game Over", 100, 60);}
+
+	
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
@@ -122,8 +140,26 @@ public  void drawEndState(Graphics g) {
                 currentState = MENU_STATE;
 
         }
+			
+				
+			}
+		if (e.getKeyCode()== KeyEvent.VK_UP) {
+			ship1.Y-=25;
+			
+			
+				
+			
+			
 		}
+		if (e.getKeyCode()== KeyEvent.VK_DOWN) {
+			ship1.Y+=25;
 	}
+		if (e.getKeyCode()== KeyEvent.VK_LEFT) {
+			ship1.X-=25;
+	}
+		if (e.getKeyCode()== KeyEvent.VK_RIGHT) {
+			ship1.X+=25;
+		}}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
