@@ -3,21 +3,21 @@ package pack;
 import java.awt.Graphics;
 
 public class GameObject {
-	int X;
-
-	int Y;
+	static int X;
+	boolean isAlive;
+	static int Y;
 
 	int width;
 
 	int height;
 
 	public GameObject(int x, int y, int width, int height) {
-		X = x ;
+		X = x;
 		Y = y;
 	}
 
 	public void update() {
-		
+
 	}
 
 	public void draw(Graphics g) {
@@ -26,7 +26,5 @@ public class GameObject {
 		g.fillRect(X, Y, 100, 100);
 
 	}
-
-	
 
 }
