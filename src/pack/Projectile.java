@@ -13,14 +13,17 @@ public class Projectile extends GameObject {
 	}
 
 	public void update() {
-		Y -= speed;
+		y -= speed;
+		if(y<0) {
+			isAlive= false;
+		}
 
 	}
 
 	public void draw(Graphics g) {
 		g.setColor(Color.RED);
 
-		g.fillRect(X, Y, 20, 40);
+		g.fillRect(x, y, 20, 40);
 
 	}
 }
