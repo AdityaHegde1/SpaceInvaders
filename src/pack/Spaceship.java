@@ -19,7 +19,7 @@ int speed = 5;
 	public void draw (Graphics g) {
 		 g.setColor(Color.BLUE);
 
-	 g.fillRect(X,Y, 20,40);
+	 g.fillRect(x,y, 20,40);
 
 	}
 }
