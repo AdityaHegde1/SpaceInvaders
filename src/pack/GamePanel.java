@@ -1,4 +1,4 @@
-package pack;
+ package pack;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -20,9 +20,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE = 2;
 	Font titleFont = new Font("Arial", Font.PLAIN, 50);
 	Spaceship ship1 = new Spaceship(250, 700, 50, 50);
-	ObjectManager OM = new ObjectManager(END_STATE, END_STATE, END_STATE, END_STATE);
+	ObjectManager OM = new ObjectManager(ship1);
 	int currentState = MENU_STATE;
 	Timer timer = new Timer(1000 / 60, this);
+
+	private Object Spaceship1;
 
 	public void startGame() {
 
@@ -138,21 +140,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			ship1.Y -= 25;
+			ship1.y -= 25;
 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			ship1.Y += 25;
+			ship1.y += 25;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			ship1.X -= 25;
+			ship1.x -= 25;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			ship1.X += 25;
+			ship1.x += 25;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			ObjectManager.AddProjectile(new Projectile(Spaceship.X, Spaceship.Y, 10, 10));
-		}
+			ObjectManager.AddProjectile(new Projectile(Spaceship1.x, Spaceship1.y, 10, 10));
+		
+System.out.println("Hi");}
 	}
 
 	@Override
