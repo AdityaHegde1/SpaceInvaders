@@ -3,17 +3,17 @@ package pack;
 import java.awt.Graphics;
 
 public class GameObject {
-	static int X;
+	 int x;
 	boolean isAlive;
-	static int Y;
+	 int y;
 
 	int width;
 
 	int height;
 
-	public GameObject(int x, int y, int width, int height) {
-		X = x;
-		Y = y;
+	public GameObject(int X, int Y, int width, int height) {
+		x = X;
+		y = Y;
 	}
 
 	public void update() {
@@ -23,7 +23,7 @@ public class GameObject {
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		System.out.println("hi");
-		g.fillRect(X, Y, 100, 100);
+		g.fillRect(x, y, 100, 100);
 
 	}
 
