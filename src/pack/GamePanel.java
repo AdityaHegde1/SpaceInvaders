@@ -24,7 +24,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 	Timer timer = new Timer(1000 / 60, this);
 
-	private Object Spaceship1;
 
 	public void startGame() {
 
@@ -58,13 +57,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-		g.setColor(Color.BLACK);
+
 		g.fillRect(0, 0, SpaceInvaders1.width, SpaceInvaders1.height);
 
 		g.setFont(titleFont);
+		OM.draw(g);
 		g.setColor(Color.BLACK);
 
-		OM.draw(g);
+		
 	}
 
 	public void drawEndState(Graphics g) {
@@ -153,7 +153,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			ship1.x += 25;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			ObjectManager.AddProjectile(new Projectile(Spaceship1.x, Spaceship1.y, 10, 10));
+			ObjectManager.AddProjectile(new Projectile(ship1.x, ship1.y, 10, 10));
 		
 System.out.println("Hi");}
 	}
