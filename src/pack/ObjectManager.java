@@ -4,12 +4,13 @@ package pack;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class ObjectManager  {
+public class ObjectManager   {
 	
 	Spaceship Ship1;
+
 	public ObjectManager(Spaceship Ship1 ) {
 		
-
+		this.Ship1 = Ship1;
 		// TODO Auto-generated constructor stub
 	}
 
